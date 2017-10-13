@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 	private Rigidbody rb;
 	private GameObject cam;
 	private GameObject rig;
+	private bool jumping = false;
 
 	// Use this for initialization
 	void Start () {
@@ -23,21 +24,31 @@ public class Player : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
 		Vector3 move = new Vector3 (Input.GetAxis ("Vertical"), 0, -Input.GetAxis ("Horizontal"));
+
 		Quaternion rot = Quaternion.LookRotation (transform.position - cam.transform.position);
 		rot.x = 0;
 		rot.z = 0;
 		move = rot * Quaternion.Euler(0, -90, 0) * move;
 		move.Normalize();
 		move *= Time.fixedDeltaTime * speed;
-		rb.AddForce (move);
-
-		if(rb.velocity.magnitude > maxSpeed){
-			rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+		if (Input.GetKey ("space") && !jumping) {
+			move.y = speed * 3;
+			jumping = true;
 		}
+		rb.AddForce (move);
+		print (move);
+		Debug.Log (rb.velocity);
+		//if(rb.velocity.magnitude > maxSpeed){
+		//	rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+		//}
 
-		rig.transform.Rotate(new Vector3(0, Input.GetAxis ("Mouse X") * lookSpeed * Time.fixedDeltaTime, 0));
+
+		rig.transform.Rotate(0, Input.GetAxis ("Mouse X") * lookSpeed * Time.fixedDeltaTime, 0);
 		rig.transform.position = transform.position;
+	}
+
+	void OnCollisionEnter(Collision other) {
+		jumping = false;
 	}
 }

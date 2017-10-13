@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Go for it", "Assembly-CShar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Go for it", "Assembly-CSharp-Editor.csproj", "{D830FE19-631A-FB2F-AADC-29A83C41A1E5}"
 EndProject
+Project("{DA2AE6CA-1E04-7D71-67CB-81392805ABCF}") = "Go for it", "Assembly-UnityScript-Editor.unityproj", "{C380C30B-95D2-971A-E571-23B244B19B9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{D830FE19-631A-FB2F-AADC-29A83C41A1E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D830FE19-631A-FB2F-AADC-29A83C41A1E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D830FE19-631A-FB2F-AADC-29A83C41A1E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C380C30B-95D2-971A-E571-23B244B19B9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C380C30B-95D2-971A-E571-23B244B19B9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C380C30B-95D2-971A-E571-23B244B19B9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C380C30B-95D2-971A-E571-23B244B19B9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

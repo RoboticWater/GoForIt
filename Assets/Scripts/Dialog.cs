@@ -1,23 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dialog : MonoBehaviour {
 
-	public GameObject timer;
 	public Vector2 posTarg;
+	public Vector2 start;
+
+	private bool show = false;
 
 	// Use this for initialization
 	void Start () {
-		GameTimer gt = timer.GetComponent<GameTimer> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		GetComponent<RectTransform> ().anchoredPosition = Vector2.Lerp (GetComponent<RectTransform> ().anchoredPosition, posTarg, 0.05f);
-		if (Input.GetMouseButtonDown (0)) {
-			GameTimer gt = timer.GetComponent<GameTimer> ();
-			gt.startTimer ();
-		}
+		GetComponent<RectTransform> ().anchoredPosition = Vector2.Lerp (GetComponent<RectTransform> ().anchoredPosition, show ? posTarg : start, 0.05f);
+	}
+
+	public void setShow(bool val) {
+		show = val;
+	}
+
+	public void setText(string t) {
+		GetComponent<Text> ().text = t;
 	}
 }
